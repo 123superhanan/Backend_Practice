@@ -153,15 +153,7 @@ Thumbs.db
 
 ---
 
-### How to Add These Files in VS Code:
 
-1. Open your project in **VS Code**
-2. Right-click in the Explorer → **New File** → Name it `README.md`
-3. Paste the README content and save
-4. Right-click again → **New File** → Name it `.gitignore`
-5. Paste the gitignore content and save
-
-Would you like me to also give you a good **commit message** for your first commit?
 
 You can now commit with:
 
