@@ -1,4 +1,4 @@
-**Yes**, this is a **Full Stack** application (even though the frontend is server-side rendered with EJS).
+this is a **Full Stack** application (even though the frontend is server-side rendered with EJS).
 
 It includes:
 - **Backend**: Node.js + Express
@@ -9,9 +9,7 @@ It includes:
 
 ---
 
-Here’s a clean **README.md** and **.gitignore** file for your GitHub repository.
 
-### 1. `README.md` (Professional & Clean)
 
 Create a file named **`README.md`** in your project root and paste this:
 
