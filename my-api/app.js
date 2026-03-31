@@ -1,30 +1,35 @@
-// const express = require('express');
-// const app = express();
-
-// require('./config/db');
-
-// app.set('view engine', 'ejs');
-// app.use(express.urlencoded({ extended: true }));
-// app.use(express.json());
-
-// const userRoutes = require('./routes/userRoutes');
-// app.use('/', userRoutes);
-
-// app.listen(3000, () => {
-//   console.log('Server running on http://localhost:3000');
-// });
 const express = require('express');
-const app = express();
+const dotenv = require('dotenv');
 
-require('./config/db'); // Your MongoDB connection
+// Load environment variables
+dotenv.config();
+
+const connectDB = require('./config/db');
+
+const app = express();
 
 // Middleware
 app.use(express.urlencoded({ extended: true }));
-app.use(express.json()); // Important for JSON body in PUT/POST
+app.use(express.json());
 
-const userRoutes = require('./routes/userRoutes');
-app.use('/api', userRoutes); // All routes prefixed with /api (recommended for APIs)
+// Set view engine
+app.set('view engine', 'ejs');
 
-app.listen(3000, () => {
-  console.log('REST API Server running on http://localhost:3000');
-});
+// Routes
+const courseRoutes = require('./routes/courseRoutes');
+app.use('/', courseRoutes);
+
+// Connect to Database & Start Server
+const startServer = async () => {
+  try {
+    await connectDB();
+    const PORT = process.env.PORT || 3000;
+    app.listen(PORT, () => {
+      console.log(`🚀 Server running on http://localhost:${PORT}`);
+    });
+  } catch (error) {
+    console.error('Failed to start server:', error);
+  }
+};
+
+startServer();
